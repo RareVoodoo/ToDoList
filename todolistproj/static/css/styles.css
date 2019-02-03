@@ -1,0 +1,49 @@
+body
+{
+    background-color: #D3DDEF;
+}
+
+.head-name
+{
+    margin-top: 30px;
+    font-family: "LondrinaSketche-Regular";
+    font-size: 90px ;
+}
+
+.content-range
+{
+   
+}
+
+#blank-wrapper,
+.list-holder
+{
+  margin: 0 auto;   
+}
+#blank-wrapper
+{
+    border: 40px solid #F59D19;
+    min-height: 900px;
+    background-color: #fff;
+}
+#underline
+{
+    border-bottom: 4px solid #C57878;
+}
+.list
+{
+    font-family:'Kreon', serif;
+    font-size: 24px;
+    padding: 15px;
+}
+
+
+
+
+
+
+
+
+
+
+

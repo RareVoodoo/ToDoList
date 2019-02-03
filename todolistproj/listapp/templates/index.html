@@ -1,0 +1,42 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="{% static 'css/fonts.css' %}">
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <link href="https://fonts.googleapis.com/css?family=Kreon" rel="stylesheet">
+    <title>Document</title>
+</head>
+<body>
+    <div class="container">
+        <div class="col text-center head-name">
+            <span>To do list</span>
+        </div>
+        <div class="row content-range">
+                <div class="col-10" id="blank-wrapper">
+                  <div class="col-11 list-holder">
+                    {% for item in item_list%}
+                   <div class="col list">
+                      <div class="row justify-content-center">
+                        <div class="col"><span>{{item.text}}</span> </div>
+                        <div class="col col-sm-1"><a href="{% url 'delete' item.id %}"><img src="{% static 'img/close%20hover.png' %}" alt=""></a></div>
+                      </div>
+                   </div>
+                     <div id="underline"></div>
+                    {% endfor %}
+
+                      <form action="" method="POST">
+                        {% csrf_token %}
+                        <input class="form-control" type="text" name="text">
+                        <button type="submit" class="btn btn-primary">Add-task</button>
+                      </form>
+
+                </div>
+            </div> 
+        </div>
+    </div>
+      <script src="{% static 'js/bootstrap.min.js' %}"></script>
+</body>
+</html>

@@ -26,11 +26,13 @@
                    </div>
                      <div id="underline"></div>
                     {% endfor %}
-
                       <form action="" method="POST">
+                      <div class="col  add-container ">
+                      <div class="col internal-container">
                         {% csrf_token %}
-                        <input class="form-control" type="text" name="text">
-                        <button type="submit" class="btn btn-primary">Add-task</button>
+                        <input  type="text" name="text">
+                        <button type="submit" class="submiter">Add</button>
+                      </div></div>
                       </form>
 
                 </div>

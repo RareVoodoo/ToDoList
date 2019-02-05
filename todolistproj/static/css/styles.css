@@ -36,9 +36,37 @@ body
     font-size: 24px;
     padding: 15px;
 }
+.add-container
+{
+    
+    font-family:'Kreon', serif;
+    font-size: 24px;
+    padding: 9px;
+    
+}
+
+input
+{
+    border: 0;
+    width: 83%;
+    height: 100%;
+    border: 2px dashed black
+}
 
 
-
+.submiter
+{
+    width: 15%;
+    height: 100%;
+    background-color: #f0f0f0;
+    border: 0;
+    box-sizing: border-box;
+}
+.submiter:hover
+{
+    transition: 0.3s;
+    transform: scale(0.8)
+}
 
 
 

@@ -1,4 +1,4 @@
-{% load static %}
+{% load static%}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,35 +10,65 @@
     <title>Document</title>
 </head>
 <body>
-    <div class="container">
-        <div class="col text-center head-name">
-            <span>To do list</span>
+<div class="container">
+    <div class="col text-center head-name">
+        <span>To do list</span>
+    </div>
+    <div class="row content-range">
+        <div class="clipper">
+            <img src="{% static 'img/clipper.png'%}" alt="">
         </div>
-        <div class="row content-range">
-                <div class="col-10" id="blank-wrapper">
-                  <div class="col-11 list-holder">
-                    {% for item in item_list%}
-                   <div class="col list">
-                      <div class="row justify-content-center">
-                        <div class="col"><span>{{item.text}}</span> </div>
-                        <div class="col col-sm-1"><a href="{% url 'delete' item.id %}"><img src="{% static 'img/close%20hover.png' %}" alt=""></a></div>
-                      </div>
-                   </div>
-                     <div id="underline"></div>
-                    {% endfor %}
-                      <form action="" method="POST">
-                      <div class="col  add-container ">
-                      <div class="col internal-container">
-                        {% csrf_token %}
-                        <input  type="text" name="text">
-                        <button type="submit" class="submiter">Add</button>
-                      </div></div>
-                      </form>
+        <div class="col-10" id="blank-wrapper">
+            <div class="col-11 list-holder">
+                {% if item_count == 0 %}
+                <div class="col empty-container">There is no any task today :(</div>
+                <div id="underline"></div>
+                {% elif item_count > 0 %}
+                {% for item in item_list%}
+                {% if item.done %}
 
+
+
+                <div class="col list">
+                    <div class="row ctr-container">
+                        <div class="col-sm-1 done"><a href="{% url 'undone' item.id %}"><img
+                                src="{% static 'img/done.png' %}" alt=""></a></div>
+                        <div class="col-10 "><span class="texter doneitem">{{item.text}}</span></div>
+                        <div class="col-sm-1"><a href="{% url 'delete' item.id %}"><img
+                                src="{% static 'img/close%20hover.png' %}" alt=""></a></div>
+                    </div>
                 </div>
-            </div> 
+                {% else %}
+
+
+                <div class="col list">
+                    <div class="row ctr-container">
+                        <div class="col-sm-1 done"><a href="{% url 'done' item.id %}"><img
+                                src="{% static 'img/done.png' %}" alt=""></a></div>
+                        <div class="col-10 "><span class="texter">{{item.text}}</span></div>
+                        <div class="col-sm-1"><a href="{% url 'delete' item.id %}"><img
+                                src="{% static 'img/close%20hover.png' %}" alt=""></a></div>
+                    </div>
+                </div>
+                {% endif %}
+
+                <div id="underline"></div>
+                {% endfor %}
+                {% endif %}
+                <form action="" method="POST">
+                    <div class="col  add-container ">
+                        <div class="col internal-container">
+                            {% csrf_token %}
+                            <input type="text" name="text">
+                            <button type="submit" class="submiter">Add</button>
+                        </div>
+                    </div>
+                </form>
+
+            </div>
         </div>
     </div>
-      <script src="{% static 'js/bootstrap.min.js' %}"></script>
+</div>
+<script src="{% static 'js/bootstrap.min.js' %}"></script>
 </body>
 </html>
